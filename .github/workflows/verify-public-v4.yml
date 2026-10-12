@@ -1,0 +1,64 @@
+name: Verify anonymous v4 image access
+on:
+  workflow_dispatch:
+    inputs:
+      image:
+        description: Verified immutable v4 image digest
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  anonymous:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: v4
+    env:
+      IMAGE: ${{ inputs.image }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - name: Anonymous pull and constrained runtime checks
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os,re
+          assert re.fullmatch(r'ghcr\.io/louistiti/openenv-quantitative-v4@sha256:[0-9a-f]{64}',os.environ['IMAGE'])
+          PY
+          export DOCKER_CONFIG=$(mktemp -d)
+          test ! -e "$DOCKER_CONFIG/config.json"
+          docker pull "$IMAGE" | tee anonymous-pull.txt
+          docker run -d --name quant-public --cpus=1 --memory=2g -p 8768:8000 "$IMAGE"
+          trap 'docker logs quant-public; docker rm -f quant-public' EXIT
+          for i in $(seq 1 115); do curl -fsS http://127.0.0.1:8768/health && break || sleep 1; done
+          curl -fsS http://127.0.0.1:8768/health
+          mv replay-local.json replay-original-local.json
+          python live_replay.py
+          mv replay-local.json replay-anonymous.json
+          openenv validate --url http://127.0.0.1:8768 --level runtime --json > validation-anonymous.json
+          curl -fsS http://127.0.0.1:8768/schema > schema-anonymous.json
+          python - <<'PY'
+          import json
+          from server import QuantAction,QuantObservation
+          data=json.load(open('schema-anonymous.json'))
+          assert data['action']==QuantAction.model_json_schema()
+          assert data['observation']==QuantObservation.model_json_schema()
+          assert json.load(open('validation-anonymous.json'))['passed']
+          replay=json.load(open('replay-anonymous.json'))
+          assert replay['episodes']==12 and replay['all_passed']
+          print('Anonymous immutable-image pull, 12 reference/floor episodes, schema and runtime validation passed')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quantitative-v4-anonymous-verification
+          path: |
+            v4/anonymous-pull.txt
+            v4/replay-anonymous.json
+            v4/validation-anonymous.json
+            v4/schema-anonymous.json
