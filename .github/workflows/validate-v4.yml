@@ -1,0 +1,90 @@
+name: Validate and build quantitative v4
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  packages: write
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: v4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify frozen sources and prior evidence
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          for name,digest in json.loads(Path('candidate-freeze.json').read_text())['source_hashes'].items():
+              assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==digest,name
+          for manifest,root in [('v1-preservation.json',Path('..')),('v3-preservation.json',Path('../v3'))]:
+              for name,digest in json.loads(Path(manifest).read_text()).items():
+                  assert hashlib.sha256((root/name).read_bytes()).hexdigest()==digest,name
+          print('Frozen v4 sources and prior evidence hash-identical')
+          PY
+      - run: pip install -r requirements.txt pytest
+      - name: Portable independent numerical, reward and isolation tests
+        run: |
+          set -euo pipefail
+          python -m pytest -q test_environment.py | tee tests-linux.txt
+      - name: Build Linux amd64 non-root image
+        run: docker build --platform linux/amd64 -t ghcr.io/louistiti/openenv-quantitative-v4:v4 .
+      - name: Resource-limited container runtime verification
+        run: |
+          set -euo pipefail
+          docker run -d --name quant --cpus=1 --memory=2g -p 8768:8000 ghcr.io/louistiti/openenv-quantitative-v4:v4
+          trap 'docker logs quant; docker rm -f quant' EXIT
+          started=$(date +%s)
+          for i in $(seq 1 115); do curl -fsS http://127.0.0.1:8768/health && break || sleep 1; done
+          curl -fsS http://127.0.0.1:8768/health
+          echo "Health ready in $(( $(date +%s) - started )) seconds" | tee readiness.txt
+          mv replay-local.json replay-original-local.json
+          python live_replay.py
+          mv replay-local.json replay-container.json
+          openenv validate --url http://127.0.0.1:8768 --level runtime --json > validation-container.json
+          curl -fsS http://127.0.0.1:8768/schema > schema-container.json
+          docker inspect ghcr.io/louistiti/openenv-quantitative-v4:v4 > image-inspect.json
+          python - <<'PY'
+          import json
+          from server import QuantAction,QuantObservation
+          schema=json.load(open('schema-container.json'))
+          assert schema['action']==QuantAction.model_json_schema()
+          assert schema['observation']==QuantObservation.model_json_schema()
+          assert json.load(open('validation-container.json'))['passed']
+          image=json.load(open('image-inspect.json'))[0]
+          assert image['Os']=='linux' and image['Architecture']=='amd64'
+          assert image['Config']['User']=='quant'
+          assert image['Size']<2*1024**3
+          assert len(image['RootFS']['Layers'])<=128
+          assert json.load(open('replay-container.json'))['episodes']==12
+          assert json.load(open('replay-container.json'))['all_passed']
+          PY
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Push tested image and prepare approval-only request
+        run: |
+          docker push ghcr.io/louistiti/openenv-quantitative-v4:v4
+          docker inspect --format='{{index .RepoDigests 0}}' ghcr.io/louistiti/openenv-quantitative-v4:v4 > image-digest.txt
+          python prepare_submission_v4.py --image "$(cat image-digest.txt)"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quantitative-v4-linux-verification
+          path: |
+            v4/tests-linux.txt
+            v4/readiness.txt
+            v4/replay-container.json
+            v4/validation-container.json
+            v4/schema-container.json
+            v4/image-inspect.json
+            v4/image-digest.txt
+            v4/submission-quantitative-v4.json

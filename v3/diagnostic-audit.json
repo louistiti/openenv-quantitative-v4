@@ -1,0 +1,212 @@
+{
+  "result_sha256": "a74a3d83f8ca551dfab32188202c47ea8e7c184bc718a8d8019981ef3e8a480d",
+  "attempted": 6,
+  "unattempted": [],
+  "outcomes": {
+    "success": 2,
+    "wrong_answer": 4
+  },
+  "training_solved": 1,
+  "heldout_solved": 1,
+  "rows": [
+    {
+      "task_id": "constrained-schedule",
+      "seed": 394101,
+      "heldout": false,
+      "reward": 1.0,
+      "actions": 3,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 1115,
+      "observation_tokens": 202,
+      "framing_reserve_tokens": 120,
+      "completion_accounted": 1437,
+      "remaining_predict": 6715,
+      "budget_exhausted": false,
+      "seconds": 30.38,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "leveraged-cashflows",
+      "seed": 394102,
+      "heldout": false,
+      "reward": 0.0,
+      "actions": 4,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 2818,
+      "observation_tokens": 2009,
+      "framing_reserve_tokens": 160,
+      "completion_accounted": 4987,
+      "remaining_predict": 3165,
+      "budget_exhausted": false,
+      "seconds": 77.72,
+      "independent_answer_disagreements": [
+        {
+          "key": "equity_npv",
+          "actual": -125058.80848997617,
+          "reference": -113832.70379952877
+        },
+        {
+          "key": "total_tax",
+          "actual": 3400.0,
+          "reference": 0.0
+        },
+        {
+          "key": "peak_revolver",
+          "actual": 109933.31869673087,
+          "reference": 100370.89974994956
+        },
+        {
+          "key": "total_net_distributions",
+          "actual": -85186.30593327203,
+          "reference": -72051.76344544865
+        },
+        {
+          "key": "ending_loss_carry",
+          "actual": 35037686.77086884,
+          "reference": 124301.76344544864
+        }
+      ]
+    },
+    {
+      "task_id": "selected-testing",
+      "seed": 394103,
+      "heldout": false,
+      "reward": 0.0,
+      "actions": 2,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 1408,
+      "observation_tokens": 191,
+      "framing_reserve_tokens": 80,
+      "completion_accounted": 1679,
+      "remaining_predict": 6473,
+      "budget_exhausted": false,
+      "seconds": 37.55,
+      "independent_answer_disagreements": [
+        {
+          "key": "selection_probability",
+          "actual": 0.1190189333,
+          "reference": 0.34398666666666666
+        },
+        {
+          "key": "pattern_probability_among_selected",
+          "actual": 0.0100446165,
+          "reference": 0.004065947252679757
+        },
+        {
+          "key": "posterior_disease",
+          "actual": 0.5861598323,
+          "reference": 0.6092879508705769
+        },
+        {
+          "key": "next_positive_probability",
+          "actual": 0.4139431683,
+          "reference": 0.4581761662520265
+        }
+      ]
+    },
+    {
+      "task_id": "piecewise-reactor",
+      "seed": 394104,
+      "heldout": false,
+      "reward": 0.0,
+      "actions": 4,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 1533,
+      "observation_tokens": 332,
+      "framing_reserve_tokens": 160,
+      "completion_accounted": 2025,
+      "remaining_predict": 6127,
+      "budget_exhausted": false,
+      "seconds": 45.31,
+      "independent_answer_disagreements": [
+        {
+          "key": "final_volume_L",
+          "actual": 104.13,
+          "reference": 126
+        },
+        {
+          "key": "final_A_mol",
+          "actual": 12.4958,
+          "reference": 13.450456408210785
+        },
+        {
+          "key": "final_B_mol",
+          "actual": 24.5373,
+          "reference": 11.566424597952992
+        },
+        {
+          "key": "total_B_discharged_mol",
+          "actual": 3.54701,
+          "reference": 22.062227401120094
+        }
+      ]
+    },
+    {
+      "task_id": "parallel-schedule",
+      "seed": 494101,
+      "heldout": true,
+      "reward": 1.0,
+      "actions": 7,
+      "worker_errors": 4,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 2258,
+      "observation_tokens": 456,
+      "framing_reserve_tokens": 280,
+      "completion_accounted": 2994,
+      "remaining_predict": 5158,
+      "budget_exhausted": false,
+      "seconds": 77.89,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "american-option",
+      "seed": 494102,
+      "heldout": true,
+      "reward": 0.0,
+      "actions": 3,
+      "worker_errors": 1,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 871,
+      "observation_tokens": 215,
+      "framing_reserve_tokens": 120,
+      "completion_accounted": 1206,
+      "remaining_predict": 6946,
+      "budget_exhausted": false,
+      "seconds": 33.6,
+      "independent_answer_disagreements": [
+        {
+          "key": "american_put",
+          "actual": 11.899930750293848,
+          "reference": 11.453846596911736
+        },
+        {
+          "key": "european_put",
+          "actual": 11.309446020765494,
+          "reference": 10.492264879749557
+        },
+        {
+          "key": "early_exercise_premium",
+          "actual": 0.5904847295283542,
+          "reference": 0.9615817171621792
+        }
+      ]
+    }
+  ],
+  "learning_evidence": false
+}

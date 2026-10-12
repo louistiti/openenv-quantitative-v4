@@ -1,0 +1,67 @@
+name: Build and verify quantitative v1
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+  packages: write
+jobs:
+  image:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt pytest
+      - name: Independent seeded correctness and capability tests
+        run: |
+          set -euo pipefail
+          python -m pytest -q test_environment.py | tee tests-linux.txt
+      - name: Build Linux amd64 non-root image
+        run: docker build --platform linux/amd64 -t ghcr.io/louistiti/openenv-quantitative:v1 .
+      - name: Container network replay, schema and pinned validation
+        run: |
+          set -euo pipefail
+          docker run -d --name quant -p 8768:8000 ghcr.io/louistiti/openenv-quantitative:v1
+          trap 'docker logs quant; docker rm -f quant' EXIT
+          for i in $(seq 1 90); do curl -fsS http://127.0.0.1:8768/health && break || sleep 1; done
+          curl -fsS http://127.0.0.1:8768/health
+          python live_replay.py --output replay-container.json
+          openenv validate --url http://127.0.0.1:8768 --level runtime --json > validation-container.json
+          curl -fsS http://127.0.0.1:8768/schema > schema-container.json
+          python - <<'PY'
+          import json
+          from server import QuantAction,QuantObservation
+          data=json.load(open('schema-container.json'))
+          assert data['action']==QuantAction.model_json_schema()
+          assert data['observation']==QuantObservation.model_json_schema()
+          assert json.load(open('validation-container.json'))['passed']
+          PY
+          docker inspect ghcr.io/louistiti/openenv-quantitative:v1 > image-inspect.json
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish verified immutable image and draft request
+        run: |
+          docker push ghcr.io/louistiti/openenv-quantitative:v1
+          docker inspect --format='{{index .RepoDigests 0}}' ghcr.io/louistiti/openenv-quantitative:v1 > image-digest.txt
+          python prepare_submission.py --image "$(cat image-digest.txt)" --schema schema-container.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: quantitative-v1-verification
+          path: |
+            tests-linux.txt
+            replay-container.json
+            validation-container.json
+            schema-container.json
+            image-inspect.json
+            image-digest.txt
+            submission-quantitative-v1.json
+      - name: Publish reproducible verification release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create quantitative-v1 --title 'Quantitative Reasoning Lab v1' --notes 'Built by Leon AI (https://github.com/leon-ai/leon) with Louistiti. Sixteen fresh-seeded quantitative types. Independent numerical/capability tests, Linux container WebSocket replays and six pinned OpenEnv runtime checks passed. See SMOKE.md for the fixed 20-episode quantized-model proxy test; no Arena training/evaluation evidence. Human approval required before submission. Anonymous image verification is separate.' tests-linux.txt replay-container.json validation-container.json schema-container.json image-inspect.json image-digest.txt submission-quantitative-v1.json

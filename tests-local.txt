@@ -1,0 +1,9 @@
+Local verification on macOS arm64, pinned OpenEnv 86a180ede21e044f7929b9a7783ad83aa67d83a3.
+Command: .venv/bin/python -m pytest -q test_environment.py
+Exit code: 0
+484 passed in 6.04s
+
+Includes 400 independent seed/type comparisons, 20 reference calculations through the restricted worker, and reward, malformed-input, isolation, capability/resource and lifecycle checks.
+Real WebSocket reference replay: 32 episodes, all reward 1; no-answer floor checks reward 0.
+Pinned runtime validation: 6/6 passed. See validation-local.json and replay-local.json.
+These are local correctness/compatibility checks, not Linux container verification, Arena training or evaluation scores.

@@ -1,0 +1,25 @@
+{
+  "offline_only": true,
+  "model_attempts_added": 0,
+  "original_results_unchanged": true,
+  "checks": [
+    {
+      "task_id": "constrained-schedule",
+      "seed": 794101,
+      "mechanism": "Release time must be reached before setup, not merely before processing.",
+      "all_required_values_match_independent_reference": true,
+      "original_code_sha256": "808c0104c6f54365f3a0e15035cef7a2f7b865023d7d5c8287c9e07985d4ede1",
+      "corrected_code_sha256": "99a47d10e09fc36a40b1072c9d2ceb75d92f9cb31f7cabbb780c904f82719827",
+      "correction_by_model": false
+    },
+    {
+      "task_id": "selected-testing",
+      "seed": 794102,
+      "mechanism": "Disease posterior must condition on selection AND observed test pattern, not selection alone.",
+      "all_required_values_match_independent_reference": true,
+      "original_code_sha256": "b63de80ebed5ee44cd5e1341a0004fe55d892ecc97c96294cd59594a8f4ad825",
+      "corrected_code_sha256": "e90e5f6d52425d55ba27330a8ce4407cfa2ae605fc1973b0d40404fe962f7042",
+      "correction_by_model": false
+    }
+  ]
+}

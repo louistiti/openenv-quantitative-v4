@@ -1,0 +1,150 @@
+{
+  "model": {
+    "name": "qwen3.8:27b",
+    "model": "qwen3.8:27b",
+    "modified_at": "2026-10-09T20:31:48.456113738+08:00",
+    "size": 18174721847,
+    "digest": "47951e4a666180bc2aedfc93c169472f2de783696fe196efbf063f5730ecf163",
+    "details": {
+      "parent_model": "",
+      "format": "safetensors",
+      "family": "",
+      "families": null,
+      "parameter_size": "",
+      "quantization_level": "nvfp4",
+      "runner": "mlx"
+    },
+    "capabilities": [
+      "completion",
+      "vision",
+      "tools",
+      "thinking"
+    ]
+  },
+  "source_hashes": {
+    "tasks.py": "7644704530f6d3707859747b1a635f5b426c614b20db14cd19e2e2c585091ad5",
+    "worker.py": "86b27034dde76b53737c1605516e1dc8fc25975c1594440b59e408cb7ef84704",
+    "server.py": "1723e6e0502c0a43849ab1019a5d335f9251b7a8709cdd2364f3243f65cbecd4",
+    "reference.py": "474bd1bb423b6b7377d0bb10736d5f9f03183d4f1e7f0fbeceec525f237dcb1d",
+    "budget.py": "d9e6c74b44c149ecc850243b8f22dd91a92331c8aa99aeab66aabf18a08c5afb",
+    "smoke_model.py": "ea6f7a891295cf29a5517b99544aaf67311bf6a1e301ca6dc0cd821a502f49c5",
+    "PROTOCOL.md": "a8d64e303e2b149a270c69869efc3037601bcb510977522f41eef3200bf6751c",
+    "test_repairs.py": "f3c01fc2573ddfce8803b30ac62a48433c06ab9e72ce1a5c4c40fccae561f2b5",
+    "test_environment.py": "5f78eae859a31cdb4e85a9a8460291d757c5b9f08014e22e61b7fcb02b4c44d4"
+  },
+  "validation": {
+    "target": "http://127.0.0.1:8768",
+    "validation_type": "running_environment",
+    "standard_version": "1.0.0",
+    "standard_profile": "openenv-http/1.x",
+    "mode": "simulation",
+    "passed": true,
+    "summary": {
+      "passed_count": 6,
+      "total_count": 6,
+      "failed_criteria": [],
+      "required_passed_count": 6,
+      "required_total_count": 6
+    },
+    "criteria": [
+      {
+        "id": "openapi_version_available",
+        "description": "GET /openapi.json returns OpenAPI info.version",
+        "passed": true,
+        "required": true,
+        "expected": {
+          "status_code": 200,
+          "info.version": "string"
+        },
+        "actual": {
+          "status_code": 200,
+          "info.version": "1.0.0"
+        }
+      },
+      {
+        "id": "health_endpoint",
+        "description": "GET /health returns healthy status",
+        "passed": true,
+        "required": true,
+        "expected": {
+          "status_code": 200,
+          "status": "healthy"
+        },
+        "actual": {
+          "status_code": 200,
+          "status": "healthy"
+        }
+      },
+      {
+        "id": "metadata_endpoint",
+        "description": "GET /metadata returns name and description",
+        "passed": true,
+        "required": true,
+        "expected": {
+          "status_code": 200,
+          "fields": [
+            "name",
+            "description"
+          ]
+        },
+        "actual": {
+          "status_code": 200,
+          "name": "QuantEnvironment",
+          "description": "QuantEnvironment environment"
+        }
+      },
+      {
+        "id": "schema_endpoint",
+        "description": "GET /schema returns action, observation, and state schemas",
+        "passed": true,
+        "required": true,
+        "expected": {
+          "status_code": 200,
+          "fields": [
+            "action",
+            "observation",
+            "state"
+          ]
+        },
+        "actual": {
+          "status_code": 200,
+          "has_action": true,
+          "has_observation": true,
+          "has_state": true
+        }
+      },
+      {
+        "id": "mcp_endpoint",
+        "description": "POST /mcp is reachable and returns JSON-RPC payload",
+        "passed": true,
+        "required": true,
+        "expected": {
+          "status_code": 200,
+          "jsonrpc": "2.0"
+        },
+        "actual": {
+          "status_code": 200,
+          "jsonrpc": "2.0"
+        }
+      },
+      {
+        "id": "mode_endpoint_consistency",
+        "description": "OpenAPI endpoint set matches OpenEnv mode contract",
+        "passed": true,
+        "required": true,
+        "expected": {
+          "/reset": true,
+          "/step": true,
+          "/state": true
+        },
+        "actual": {
+          "/reset": true,
+          "/step": true,
+          "/state": true
+        }
+      }
+    ]
+  },
+  "tests_passed": 201,
+  "live_reference_episodes": 12
+}

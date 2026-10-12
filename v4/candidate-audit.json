@@ -1,0 +1,301 @@
+{
+  "result_sha256": "ddbaa7ef71e81a115c30decb4d05869297dc7e58ce143531e28c7a6c51a71513",
+  "attempted": 12,
+  "unattempted": [],
+  "outcomes": {
+    "success": 8,
+    "wrong_answer": 4
+  },
+  "training_solved": 5,
+  "heldout_solved": 3,
+  "rows": [
+    {
+      "task_id": "constrained-schedule",
+      "seed": 794101,
+      "heldout": false,
+      "reward": 0.0818181818181818,
+      "actions": 2,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 634,
+      "observation_tokens": 169,
+      "framing_reserve_tokens": 80,
+      "completion_accounted": 883,
+      "remaining_predict": 7269,
+      "budget_exhausted": false,
+      "seconds": 18.74,
+      "independent_answer_disagreements": [
+        {
+          "key": "weighted_tardiness",
+          "actual": 183,
+          "reference": 186
+        },
+        {
+          "key": "makespan",
+          "actual": 51,
+          "reference": 50
+        },
+        {
+          "key": "job_at_1",
+          "actual": 4,
+          "reference": 6
+        },
+        {
+          "key": "job_at_2",
+          "actual": 1,
+          "reference": 4
+        },
+        {
+          "key": "job_at_3",
+          "actual": 6,
+          "reference": 1
+        }
+      ]
+    },
+    {
+      "task_id": "selected-testing",
+      "seed": 794102,
+      "heldout": false,
+      "reward": 0.11249999999999999,
+      "actions": 3,
+      "worker_errors": 1,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 1315,
+      "observation_tokens": 270,
+      "framing_reserve_tokens": 120,
+      "completion_accounted": 1705,
+      "remaining_predict": 6447,
+      "budget_exhausted": false,
+      "seconds": 36.02,
+      "independent_answer_disagreements": [
+        {
+          "key": "posterior_disease",
+          "actual": 0.23078291814946622,
+          "reference": 0.5602552492494854
+        }
+      ]
+    },
+    {
+      "task_id": "parallel-schedule",
+      "seed": 894101,
+      "heldout": true,
+      "reward": 1.0,
+      "actions": 5,
+      "worker_errors": 3,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 2727,
+      "observation_tokens": 297,
+      "framing_reserve_tokens": 200,
+      "completion_accounted": 3224,
+      "remaining_predict": 4928,
+      "budget_exhausted": false,
+      "seconds": 92.43,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "american-option",
+      "seed": 894102,
+      "heldout": true,
+      "reward": 1.0,
+      "actions": 3,
+      "worker_errors": 1,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 849,
+      "observation_tokens": 205,
+      "framing_reserve_tokens": 120,
+      "completion_accounted": 1174,
+      "remaining_predict": 6978,
+      "budget_exhausted": false,
+      "seconds": 36.42,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "constrained-schedule",
+      "seed": 794111,
+      "heldout": false,
+      "reward": 1.0,
+      "actions": 6,
+      "worker_errors": 3,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 3323,
+      "observation_tokens": 596,
+      "framing_reserve_tokens": 240,
+      "completion_accounted": 4159,
+      "remaining_predict": 3993,
+      "budget_exhausted": false,
+      "seconds": 134.22,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "selected-testing",
+      "seed": 794112,
+      "heldout": false,
+      "reward": 1.0,
+      "actions": 3,
+      "worker_errors": 1,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 1511,
+      "observation_tokens": 251,
+      "framing_reserve_tokens": 120,
+      "completion_accounted": 1882,
+      "remaining_predict": 6270,
+      "budget_exhausted": false,
+      "seconds": 56.71,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "parallel-schedule",
+      "seed": 894111,
+      "heldout": true,
+      "reward": 0.075,
+      "actions": 5,
+      "worker_errors": 3,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 2545,
+      "observation_tokens": 299,
+      "framing_reserve_tokens": 200,
+      "completion_accounted": 3044,
+      "remaining_predict": 5108,
+      "budget_exhausted": false,
+      "seconds": 88.85,
+      "independent_answer_disagreements": [
+        {
+          "key": "minimum_makespan",
+          "actual": 15,
+          "reference": 16
+        }
+      ]
+    },
+    {
+      "task_id": "american-option",
+      "seed": 894112,
+      "heldout": true,
+      "reward": 1.0,
+      "actions": 4,
+      "worker_errors": 1,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 1062,
+      "observation_tokens": 303,
+      "framing_reserve_tokens": 160,
+      "completion_accounted": 1525,
+      "remaining_predict": 6627,
+      "budget_exhausted": false,
+      "seconds": 39.91,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "constrained-schedule",
+      "seed": 794121,
+      "heldout": false,
+      "reward": 1.0,
+      "actions": 3,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 1025,
+      "observation_tokens": 257,
+      "framing_reserve_tokens": 120,
+      "completion_accounted": 1402,
+      "remaining_predict": 6750,
+      "budget_exhausted": false,
+      "seconds": 36.76,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "selected-testing",
+      "seed": 794122,
+      "heldout": false,
+      "reward": 1.0,
+      "actions": 2,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 1294,
+      "observation_tokens": 191,
+      "framing_reserve_tokens": 80,
+      "completion_accounted": 1565,
+      "remaining_predict": 6587,
+      "budget_exhausted": false,
+      "seconds": 47.71,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "constrained-schedule",
+      "seed": 794131,
+      "heldout": false,
+      "reward": 1.0,
+      "actions": 2,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 623,
+      "observation_tokens": 121,
+      "framing_reserve_tokens": 80,
+      "completion_accounted": 824,
+      "remaining_predict": 7328,
+      "budget_exhausted": false,
+      "seconds": 24.16,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "selected-testing",
+      "seed": 794132,
+      "heldout": false,
+      "reward": 0.0,
+      "actions": 5,
+      "worker_errors": 2,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 3074,
+      "observation_tokens": 415,
+      "framing_reserve_tokens": 200,
+      "completion_accounted": 3689,
+      "remaining_predict": 4463,
+      "budget_exhausted": false,
+      "seconds": 109.94,
+      "independent_answer_disagreements": [
+        {
+          "key": "selection_probability",
+          "actual": 0.473333333333,
+          "reference": 0.48756666666666665
+        },
+        {
+          "key": "pattern_probability_among_selected",
+          "actual": 0.045514297949,
+          "reference": 0.07692865197169617
+        },
+        {
+          "key": "posterior_disease",
+          "actual": 0.004233278798,
+          "reference": 0.13142551451025106
+        },
+        {
+          "key": "next_positive_probability",
+          "actual": 0.055745073452,
+          "reference": 0.24686037298267322
+        }
+      ]
+    }
+  ],
+  "learning_evidence": false
+}

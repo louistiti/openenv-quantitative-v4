@@ -1,0 +1,204 @@
+{
+  "model": {
+    "name": "qwen3.8:27b",
+    "model": "qwen3.8:27b",
+    "modified_at": "2026-10-09T20:31:48.456113738+08:00",
+    "size": 18174721847,
+    "digest": "47951e4a666180bc2aedfc93c169472f2de783696fe196efbf063f5730ecf163",
+    "details": {
+      "parent_model": "",
+      "format": "safetensors",
+      "family": "",
+      "families": null,
+      "parameter_size": "",
+      "quantization_level": "nvfp4",
+      "runner": "mlx"
+    },
+    "capabilities": [
+      "completion",
+      "vision",
+      "tools",
+      "thinking"
+    ]
+  },
+  "source_hashes": {
+    "tasks.py": "008c2d000d915bef812689e674e4cfddd9238cfbd01cbe0c4ca2a7087ce22c8f",
+    "worker.py": "86b27034dde76b53737c1605516e1dc8fc25975c1594440b59e408cb7ef84704",
+    "server.py": "1723e6e0502c0a43849ab1019a5d335f9251b7a8709cdd2364f3243f65cbecd4",
+    "reference.py": "474bd1bb423b6b7377d0bb10736d5f9f03183d4f1e7f0fbeceec525f237dcb1d",
+    "budget.py": "d9e6c74b44c149ecc850243b8f22dd91a92331c8aa99aeab66aabf18a08c5afb",
+    "smoke_model.py": "f6f8e8f60d9dde8015c7be8f16c222e220306bdfc3619ea667e2962c5e9565b2",
+    "qualify_model.py": "e5c7674ea4bc9ee12d970c375fcc506e54c01807a6910a985cff073c6fb530b3",
+    "PROTOCOL.md": "21c31f503072f3fb68875696013833abc29f2ede707b7139df990c63ad723e23",
+    "test_candidate.py": "2dda00175a8331d01d2f5bcc42d5fde253f01293504d18be6d6a33f93c4f3599",
+    "test_screen_interface.py": "f708e3080084fb28f6a23f264627514b102d7d591658af8ecdfea9bbc61bfd8c",
+    "test_environment.py": "a59f6005563dd3dedc021aa8a86b0cf723e596b4e777d09a1eb13a4ca2a5d4c9",
+    "requirements.txt": "4f4e2ccade098de18493c2758ce0d5fc6766dcae3f82815aab2b054775197186",
+    "v3-preservation.json": "c1175615dda4401fd13780371d90701885bc40f45225a2f8704600b74022fa0f"
+  },
+  "validation": {
+    "target": "http://127.0.0.1:8768",
+    "validation_type": "running_environment",
+    "standard_version": "1.0.0",
+    "standard_profile": "openenv-http/1.x",
+    "mode": "simulation",
+    "passed": true,
+    "summary": {
+      "passed_count": 6,
+      "total_count": 6,
+      "failed_criteria": [],
+      "required_passed_count": 6,
+      "required_total_count": 6
+    },
+    "criteria": [
+      {
+        "id": "openapi_version_available",
+        "description": "GET /openapi.json returns OpenAPI info.version",
+        "passed": true,
+        "required": true,
+        "expected": {
+          "status_code": 200,
+          "info.version": "string"
+        },
+        "actual": {
+          "status_code": 200,
+          "info.version": "1.0.0"
+        }
+      },
+      {
+        "id": "health_endpoint",
+        "description": "GET /health returns healthy status",
+        "passed": true,
+        "required": true,
+        "expected": {
+          "status_code": 200,
+          "status": "healthy"
+        },
+        "actual": {
+          "status_code": 200,
+          "status": "healthy"
+        }
+      },
+      {
+        "id": "metadata_endpoint",
+        "description": "GET /metadata returns name and description",
+        "passed": true,
+        "required": true,
+        "expected": {
+          "status_code": 200,
+          "fields": [
+            "name",
+            "description"
+          ]
+        },
+        "actual": {
+          "status_code": 200,
+          "name": "QuantEnvironment",
+          "description": "QuantEnvironment environment"
+        }
+      },
+      {
+        "id": "schema_endpoint",
+        "description": "GET /schema returns action, observation, and state schemas",
+        "passed": true,
+        "required": true,
+        "expected": {
+          "status_code": 200,
+          "fields": [
+            "action",
+            "observation",
+            "state"
+          ]
+        },
+        "actual": {
+          "status_code": 200,
+          "has_action": true,
+          "has_observation": true,
+          "has_state": true
+        }
+      },
+      {
+        "id": "mcp_endpoint",
+        "description": "POST /mcp is reachable and returns JSON-RPC payload",
+        "passed": true,
+        "required": true,
+        "expected": {
+          "status_code": 200,
+          "jsonrpc": "2.0"
+        },
+        "actual": {
+          "status_code": 200,
+          "jsonrpc": "2.0"
+        }
+      },
+      {
+        "id": "mode_endpoint_consistency",
+        "description": "OpenAPI endpoint set matches OpenEnv mode contract",
+        "passed": true,
+        "required": true,
+        "expected": {
+          "/reset": true,
+          "/step": true,
+          "/state": true
+        },
+        "actual": {
+          "/reset": true,
+          "/step": true,
+          "/state": true
+        }
+      }
+    ]
+  },
+  "tests_passed_before_freeze": 193,
+  "live_reference_episodes": 12,
+  "worklist": [
+    [
+      "constrained-schedule",
+      794101
+    ],
+    [
+      "selected-testing",
+      794102
+    ],
+    [
+      "parallel-schedule",
+      894101
+    ],
+    [
+      "american-option",
+      894102
+    ],
+    [
+      "constrained-schedule",
+      794111
+    ],
+    [
+      "selected-testing",
+      794112
+    ],
+    [
+      "parallel-schedule",
+      894111
+    ],
+    [
+      "american-option",
+      894112
+    ],
+    [
+      "constrained-schedule",
+      794121
+    ],
+    [
+      "selected-testing",
+      794122
+    ],
+    [
+      "constrained-schedule",
+      794131
+    ],
+    [
+      "selected-testing",
+      794132
+    ]
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "attempted": 20,
+  "training_solved": 5,
+  "heldout_solved": 2,
+  "mixed_training_families": 2,
+  "usable_numeric_answers": 16,
+  "gate_passed": false,
+  "result_sha256": "a2ab2375420fac06d88ddbb166f865c92370eb691fe5cf44c6d06f965a5253c1"
+}

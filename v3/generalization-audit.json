@@ -1,0 +1,567 @@
+{
+  "result_sha256": "a2ab2375420fac06d88ddbb166f865c92370eb691fe5cf44c6d06f965a5253c1",
+  "attempted": 20,
+  "unattempted": [],
+  "outcomes": {
+    "ended_without_answer": 1,
+    "invalid_json": 1,
+    "success": 7,
+    "truncated_reply": 1,
+    "wall_time": 1,
+    "wrong_answer": 9
+  },
+  "training_solved": 5,
+  "heldout_solved": 2,
+  "rows": [
+    {
+      "task_id": "constrained-schedule",
+      "seed": 594101,
+      "heldout": false,
+      "reward": 0.06818181818181818,
+      "actions": 2,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 622,
+      "observation_tokens": 140,
+      "framing_reserve_tokens": 80,
+      "completion_accounted": 842,
+      "remaining_predict": 7310,
+      "budget_exhausted": false,
+      "seconds": 17.82,
+      "independent_answer_disagreements": [
+        {
+          "key": "weighted_tardiness",
+          "actual": 138,
+          "reference": 150
+        },
+        {
+          "key": "job_at_2",
+          "actual": 6,
+          "reference": 8
+        },
+        {
+          "key": "job_at_4",
+          "actual": 3,
+          "reference": 5
+        },
+        {
+          "key": "job_at_5",
+          "actual": 5,
+          "reference": 6
+        },
+        {
+          "key": "job_at_6",
+          "actual": 7,
+          "reference": 3
+        },
+        {
+          "key": "job_at_7",
+          "actual": 8,
+          "reference": 7
+        }
+      ]
+    },
+    {
+      "task_id": "leveraged-cashflows",
+      "seed": 594102,
+      "heldout": false,
+      "reward": 0.0,
+      "actions": 4,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 3114,
+      "observation_tokens": 735,
+      "framing_reserve_tokens": 160,
+      "completion_accounted": 4009,
+      "remaining_predict": 4143,
+      "budget_exhausted": false,
+      "seconds": 86.05,
+      "independent_answer_disagreements": [
+        {
+          "key": "equity_npv",
+          "actual": -209991.47653271936,
+          "reference": -6451.06769793752
+        },
+        {
+          "key": "total_tax",
+          "actual": 4233.157062211965,
+          "reference": 4844.89368597385
+        },
+        {
+          "key": "peak_revolver",
+          "actual": 220940.63588541135,
+          "reference": 22624.442935708335
+        },
+        {
+          "key": "total_net_distributions",
+          "actual": -197333.18290192168,
+          "reference": 61617.972607550575
+        },
+        {
+          "key": "ending_loss_carry",
+          "actual": 36360.54938041632,
+          "reference": 7836.779326388401
+        }
+      ]
+    },
+    {
+      "task_id": "selected-testing",
+      "seed": 594103,
+      "heldout": false,
+      "reward": 0.0,
+      "actions": 2,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 896,
+      "observation_tokens": 188,
+      "framing_reserve_tokens": 80,
+      "completion_accounted": 1164,
+      "remaining_predict": 6988,
+      "budget_exhausted": false,
+      "seconds": 28.43,
+      "independent_answer_disagreements": [
+        {
+          "key": "selection_probability",
+          "actual": 0.2047537142857143,
+          "reference": 0.4199428571428571
+        },
+        {
+          "key": "pattern_probability_among_selected",
+          "actual": 0.0725780982127657,
+          "reference": 0.03618268349095114
+        },
+        {
+          "key": "posterior_disease",
+          "actual": 0.37522307548443395,
+          "reference": 0.3834578183978802
+        },
+        {
+          "key": "next_positive_probability",
+          "actual": 0.533830490919354,
+          "reference": 0.5355567385145255
+        }
+      ]
+    },
+    {
+      "task_id": "piecewise-reactor",
+      "seed": 594104,
+      "heldout": false,
+      "reward": 0.11249999999999999,
+      "actions": 2,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 724,
+      "observation_tokens": 179,
+      "framing_reserve_tokens": 80,
+      "completion_accounted": 983,
+      "remaining_predict": 7169,
+      "budget_exhausted": false,
+      "seconds": 26.96,
+      "independent_answer_disagreements": [
+        {
+          "key": "total_B_discharged_mol",
+          "actual": 10.22717,
+          "reference": 33.040429350940684
+        }
+      ]
+    },
+    {
+      "task_id": "parallel-schedule",
+      "seed": 694101,
+      "heldout": true,
+      "reward": 1.0,
+      "actions": 4,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 1253,
+      "observation_tokens": 207,
+      "framing_reserve_tokens": 160,
+      "completion_accounted": 1620,
+      "remaining_predict": 6532,
+      "budget_exhausted": false,
+      "seconds": 51.58,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "american-option",
+      "seed": 694102,
+      "heldout": true,
+      "reward": 1.0,
+      "actions": 2,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 684,
+      "observation_tokens": 160,
+      "framing_reserve_tokens": 80,
+      "completion_accounted": 924,
+      "remaining_predict": 7228,
+      "budget_exhausted": false,
+      "seconds": 38.96,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "constrained-schedule",
+      "seed": 594111,
+      "heldout": false,
+      "reward": 1.0,
+      "actions": 5,
+      "worker_errors": 2,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 2313,
+      "observation_tokens": 329,
+      "framing_reserve_tokens": 200,
+      "completion_accounted": 2842,
+      "remaining_predict": 5310,
+      "budget_exhausted": false,
+      "seconds": 102.87,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "leveraged-cashflows",
+      "seed": 594112,
+      "heldout": false,
+      "reward": 0,
+      "actions": 1,
+      "worker_errors": 0,
+      "answer_delivered": false,
+      "outcome": "invalid_json",
+      "error": "JSONDecodeError: Extra data: line 1 column 6370 (char 6369)",
+      "generated_tokens": 2912,
+      "observation_tokens": 49,
+      "framing_reserve_tokens": 80,
+      "completion_accounted": 3041,
+      "remaining_predict": 5111,
+      "budget_exhausted": false,
+      "seconds": 119.12,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "selected-testing",
+      "seed": 594113,
+      "heldout": false,
+      "reward": 1.0,
+      "actions": 2,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 1089,
+      "observation_tokens": 181,
+      "framing_reserve_tokens": 80,
+      "completion_accounted": 1350,
+      "remaining_predict": 6802,
+      "budget_exhausted": false,
+      "seconds": 48.32,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "piecewise-reactor",
+      "seed": 594114,
+      "heldout": false,
+      "reward": 0,
+      "actions": 5,
+      "worker_errors": 1,
+      "answer_delivered": false,
+      "outcome": "wall_time",
+      "error": "TimeoutError: timed out",
+      "generated_tokens": 4567,
+      "observation_tokens": 635,
+      "framing_reserve_tokens": 200,
+      "completion_accounted": 5402,
+      "remaining_predict": 2750,
+      "budget_exhausted": false,
+      "seconds": 300.0,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "parallel-schedule",
+      "seed": 694111,
+      "heldout": true,
+      "reward": 0,
+      "actions": 7,
+      "worker_errors": 1,
+      "answer_delivered": false,
+      "outcome": "truncated_reply",
+      "error": "JSONDecodeError: Unterminated string starting at: line 1 column 30 (char 29)",
+      "generated_tokens": 6446,
+      "observation_tokens": 1426,
+      "framing_reserve_tokens": 320,
+      "completion_accounted": 8192,
+      "remaining_predict": 0,
+      "budget_exhausted": true,
+      "seconds": 201.05,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "american-option",
+      "seed": 694112,
+      "heldout": true,
+      "reward": 0.0,
+      "actions": 2,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 514,
+      "observation_tokens": 142,
+      "framing_reserve_tokens": 80,
+      "completion_accounted": 736,
+      "remaining_predict": 7416,
+      "budget_exhausted": false,
+      "seconds": 22.81,
+      "independent_answer_disagreements": [
+        {
+          "key": "american_put",
+          "actual": 18.668121,
+          "reference": 18.039404597672654
+        },
+        {
+          "key": "european_put",
+          "actual": 17.514001,
+          "reference": 16.435521433386462
+        },
+        {
+          "key": "early_exercise_premium",
+          "actual": 1.15412,
+          "reference": 1.6038831642861915
+        }
+      ]
+    },
+    {
+      "task_id": "constrained-schedule",
+      "seed": 594121,
+      "heldout": false,
+      "reward": 1.0,
+      "actions": 3,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 1423,
+      "observation_tokens": 345,
+      "framing_reserve_tokens": 120,
+      "completion_accounted": 1888,
+      "remaining_predict": 6264,
+      "budget_exhausted": false,
+      "seconds": 54.22,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "leveraged-cashflows",
+      "seed": 594122,
+      "heldout": false,
+      "reward": 0.03,
+      "actions": 5,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 3118,
+      "observation_tokens": 2491,
+      "framing_reserve_tokens": 200,
+      "completion_accounted": 5809,
+      "remaining_predict": 2343,
+      "budget_exhausted": false,
+      "seconds": 116.22,
+      "independent_answer_disagreements": [
+        {
+          "key": "equity_npv",
+          "actual": -132934.589403,
+          "reference": -41260.00900740179
+        },
+        {
+          "key": "peak_revolver",
+          "actual": 107490.111622,
+          "reference": 36857.13703990257
+        },
+        {
+          "key": "total_net_distributions",
+          "actual": -81579.973185,
+          "reference": 11813.990091858024
+        },
+        {
+          "key": "ending_loss_carry",
+          "actual": 45579.973185,
+          "reference": 40186.009908142
+        }
+      ]
+    },
+    {
+      "task_id": "selected-testing",
+      "seed": 594123,
+      "heldout": false,
+      "reward": 0.0375,
+      "actions": 3,
+      "worker_errors": 1,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 1526,
+      "observation_tokens": 240,
+      "framing_reserve_tokens": 120,
+      "completion_accounted": 1886,
+      "remaining_predict": 6266,
+      "budget_exhausted": false,
+      "seconds": 52.57,
+      "independent_answer_disagreements": [
+        {
+          "key": "pattern_probability_among_selected",
+          "actual": 0.11860346119988792,
+          "reference": 0.059120261491723426
+        },
+        {
+          "key": "posterior_disease",
+          "actual": 0.1968107895898598,
+          "reference": 0.24679419387068222
+        },
+        {
+          "key": "next_positive_probability",
+          "actual": 0.3575602762000277,
+          "reference": 0.24929097290078803
+        }
+      ]
+    },
+    {
+      "task_id": "piecewise-reactor",
+      "seed": 594124,
+      "heldout": false,
+      "reward": 0.075,
+      "actions": 4,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 3284,
+      "observation_tokens": 479,
+      "framing_reserve_tokens": 160,
+      "completion_accounted": 3923,
+      "remaining_predict": 4229,
+      "budget_exhausted": false,
+      "seconds": 116.68,
+      "independent_answer_disagreements": [
+        {
+          "key": "final_B_mol",
+          "actual": 53.3650872036,
+          "reference": 35.811244435447335
+        },
+        {
+          "key": "total_B_discharged_mol",
+          "actual": 27.8905613976,
+          "reference": 31.200187203045637
+        }
+      ]
+    },
+    {
+      "task_id": "constrained-schedule",
+      "seed": 594131,
+      "heldout": false,
+      "reward": 1.0,
+      "actions": 3,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 1025,
+      "observation_tokens": 196,
+      "framing_reserve_tokens": 120,
+      "completion_accounted": 1341,
+      "remaining_predict": 6811,
+      "budget_exhausted": false,
+      "seconds": 39.19,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "leveraged-cashflows",
+      "seed": 594132,
+      "heldout": false,
+      "reward": 0.03,
+      "actions": 4,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "wrong_answer",
+      "error": null,
+      "generated_tokens": 2394,
+      "observation_tokens": 591,
+      "framing_reserve_tokens": 160,
+      "completion_accounted": 3145,
+      "remaining_predict": 5007,
+      "budget_exhausted": false,
+      "seconds": 87.31,
+      "independent_answer_disagreements": [
+        {
+          "key": "equity_npv",
+          "actual": -47871.755332,
+          "reference": -43592.47605233871
+        },
+        {
+          "key": "total_tax",
+          "actual": 5620.041667,
+          "reference": 870.0416666666667
+        },
+        {
+          "key": "total_net_distributions",
+          "actual": 18899.587842,
+          "reference": 23649.58784201594
+        },
+        {
+          "key": "ending_loss_carry",
+          "actual": 63460.537158,
+          "reference": 44460.537157984065
+        }
+      ]
+    },
+    {
+      "task_id": "selected-testing",
+      "seed": 594133,
+      "heldout": false,
+      "reward": 1.0,
+      "actions": 2,
+      "worker_errors": 0,
+      "answer_delivered": true,
+      "outcome": "success",
+      "error": null,
+      "generated_tokens": 1685,
+      "observation_tokens": 162,
+      "framing_reserve_tokens": 80,
+      "completion_accounted": 1927,
+      "remaining_predict": 6225,
+      "budget_exhausted": false,
+      "seconds": 65.79,
+      "independent_answer_disagreements": []
+    },
+    {
+      "task_id": "piecewise-reactor",
+      "seed": 594134,
+      "heldout": false,
+      "reward": 0.0,
+      "actions": 16,
+      "worker_errors": 0,
+      "answer_delivered": false,
+      "outcome": "ended_without_answer",
+      "error": null,
+      "generated_tokens": 4963,
+      "observation_tokens": 1776,
+      "framing_reserve_tokens": 640,
+      "completion_accounted": 7379,
+      "remaining_predict": 773,
+      "budget_exhausted": false,
+      "seconds": 161.83,
+      "independent_answer_disagreements": []
+    }
+  ],
+  "learning_evidence": false
+}

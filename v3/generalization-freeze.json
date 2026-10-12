@@ -1,0 +1,116 @@
+{
+  "model": {
+    "name": "qwen3.8:27b",
+    "model": "qwen3.8:27b",
+    "modified_at": "2026-10-09T20:31:48.456113738+08:00",
+    "size": 18174721847,
+    "digest": "47951e4a666180bc2aedfc93c169472f2de783696fe196efbf063f5730ecf163",
+    "details": {
+      "parent_model": "",
+      "format": "safetensors",
+      "family": "",
+      "families": null,
+      "parameter_size": "",
+      "quantization_level": "nvfp4",
+      "runner": "mlx"
+    },
+    "capabilities": [
+      "completion",
+      "vision",
+      "tools",
+      "thinking"
+    ]
+  },
+  "source_hashes": {
+    "generalization_screen.py": "0a8cb35163e84d0124149be671c98240d45701573f09d9b7f92a022155726aed",
+    "GENERALIZATION_PROTOCOL.md": "f963068cbc31013a6370b67c1b0702ff4b7a60f199b5bffd467b7ee7c4f8c7cf",
+    "test_generalization_gate.py": "012b335d8866957f3007ea1c0bbe97d7baa76a215e24f78aa3fce4637362e905",
+    "diagnostic-freeze.json": "7d723424512b6f4babd3e7a28fcd4266440a16318ce92ed04d39eb309c1727c8",
+    "model-smoke.json": "a74a3d83f8ca551dfab32188202c47ea8e7c184bc718a8d8019981ef3e8a480d",
+    "diagnostic-audit.json": "cc3329e5bd369a2ab5876a1b83eb08ba93ebf467a43bf7826c0f5a3930d858ca",
+    "analyze_diagnostic.py": "dc3419daf8caf24e447b8381ea193ed13156210e2525278d4755f5de97773f57"
+  },
+  "worklist": [
+    [
+      "constrained-schedule",
+      594101
+    ],
+    [
+      "leveraged-cashflows",
+      594102
+    ],
+    [
+      "selected-testing",
+      594103
+    ],
+    [
+      "piecewise-reactor",
+      594104
+    ],
+    [
+      "parallel-schedule",
+      694101
+    ],
+    [
+      "american-option",
+      694102
+    ],
+    [
+      "constrained-schedule",
+      594111
+    ],
+    [
+      "leveraged-cashflows",
+      594112
+    ],
+    [
+      "selected-testing",
+      594113
+    ],
+    [
+      "piecewise-reactor",
+      594114
+    ],
+    [
+      "parallel-schedule",
+      694111
+    ],
+    [
+      "american-option",
+      694112
+    ],
+    [
+      "constrained-schedule",
+      594121
+    ],
+    [
+      "leveraged-cashflows",
+      594122
+    ],
+    [
+      "selected-testing",
+      594123
+    ],
+    [
+      "piecewise-reactor",
+      594124
+    ],
+    [
+      "constrained-schedule",
+      594131
+    ],
+    [
+      "leveraged-cashflows",
+      594132
+    ],
+    [
+      "selected-testing",
+      594133
+    ],
+    [
+      "piecewise-reactor",
+      594134
+    ]
+  ],
+  "tests_passed": 215
+}

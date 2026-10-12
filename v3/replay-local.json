@@ -1,0 +1,80 @@
+{
+  "transport": "network_websocket",
+  "episodes": 12,
+  "all_passed": true,
+  "model_rollouts": 0,
+  "rows": [
+    {
+      "task_id": "constrained-schedule",
+      "seed": 713,
+      "reward": 1,
+      "steps": 2
+    },
+    {
+      "task_id": "leveraged-cashflows",
+      "seed": 713,
+      "reward": 1,
+      "steps": 2
+    },
+    {
+      "task_id": "selected-testing",
+      "seed": 713,
+      "reward": 1,
+      "steps": 2
+    },
+    {
+      "task_id": "piecewise-reactor",
+      "seed": 713,
+      "reward": 1,
+      "steps": 2
+    },
+    {
+      "task_id": "parallel-schedule",
+      "seed": 713,
+      "reward": 1,
+      "steps": 2
+    },
+    {
+      "task_id": "american-option",
+      "seed": 713,
+      "reward": 1,
+      "steps": 2
+    },
+    {
+      "task_id": "constrained-schedule",
+      "seed": 2718,
+      "reward": 1,
+      "steps": 2
+    },
+    {
+      "task_id": "leveraged-cashflows",
+      "seed": 2718,
+      "reward": 1,
+      "steps": 2
+    },
+    {
+      "task_id": "selected-testing",
+      "seed": 2718,
+      "reward": 1,
+      "steps": 2
+    },
+    {
+      "task_id": "piecewise-reactor",
+      "seed": 2718,
+      "reward": 1,
+      "steps": 2
+    },
+    {
+      "task_id": "parallel-schedule",
+      "seed": 2718,
+      "reward": 1,
+      "steps": 2
+    },
+    {
+      "task_id": "american-option",
+      "seed": 2718,
+      "reward": 1,
+      "steps": 2
+    }
+  ]
+}
